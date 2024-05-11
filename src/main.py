@@ -6,10 +6,11 @@ def play() -> None:
     """
     Function that runs Main Menu.
     """
-    board = Board(resolution[0],resolution[1])
+    board = Board(resolution[0],resolution[1]-60)
+    
     
     while True:
-        screen.fill((0,0,255))
+        canvas.fill((0,0,255))
 
         mx, my = pygame.mouse.get_pos()
 
@@ -21,16 +22,24 @@ def play() -> None:
                 if event.button == 1:
                     board.click(mx,my)
 
-        board.draw(screen)
-
+        board.draw(canvas)
+        screen.blit(canvas, (0, 60))
+        
         pygame.display.update()
+        
+        result = board.isWin()
+        if result != None:
+            print(result)
+            break
 
 
 if __name__ == "__main__":
     pygame.init()
-    resolution = [900,720]
-    
+    resolution = [840,740]
     clock = pygame.time.Clock()
     clock.tick(30)
+    
     screen = pygame.display.set_mode((resolution[0], resolution[1]))
+    canvas = pygame.Surface((resolution[0], resolution[1])) 
+    
     play()

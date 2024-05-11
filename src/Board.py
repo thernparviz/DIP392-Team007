@@ -62,7 +62,6 @@ class Board():
                 circles.append([])
 
             circles[-1].append(Circle(coordinate[0],coordinate[1],self.increment_w,self.increment_h,coordinate[2]))
-        print(circles)
         return circles
     
     def getCircle(self,mx: int, my: int) -> Circle:
@@ -139,29 +138,3 @@ class Board():
         self.turn = not self.turn
       
                 
-        
-    # def isWin(self) -> str or bool:
-    #     """
-    #     Checks for wining states. Returns False or Winners color as string.
-        
-    #     Returns:
-    #             'White' (str): if white is winning
-    #             'Black' (str): if black is winning
-    #              False   (bool): no winning condition
-        
-    #     """
-    #     for square in self.circles[0]:
-    #         if square.occupiedPiece != None:
-    #             if square.occupiedPiece.isBlack == False:
-    #                 return "White"
-
-    #     for square in self.circles[-1]:
-    #         if square.occupiedPiece != None:
-    #             if square.occupiedPiece.isBlack == True:
-    #                 return "Black"     
-                
-    #     self.pieceUpdate()
-    #     if not self.blackPieces:return "White"
-    #     if not self.whitePieces:return "Black"
-
-    #     return False

@@ -155,6 +155,21 @@ class Board():
                 if ith == a == b == c:
                      return ith
         
+        #horizontal
+        for row in range(self.xSize):
+            for i in range(4):
+
+                ith = self.circles[i][row].occupiedPiece
+
+                if ith == None:
+                    continue
+
+                a= self.circles[i+1][row].occupiedPiece
+                b= self.circles[i+2][row].occupiedPiece
+                c= self.circles[i+3][row].occupiedPiece
+
+                if ith == a == b == c:
+                    return ith
 
         #diagonal right-left
         for i in range(3):

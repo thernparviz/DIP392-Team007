@@ -1,5 +1,9 @@
 import pygame
-import sys
+import sys  
+import os
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'lib'))
+sys.path.append(src_path)
+
 from Board import Board
 
 def play() -> None:

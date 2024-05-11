@@ -203,6 +203,9 @@ class Board():
                 if ith == a == b == c:
                     return ith
 
-
-
-        return None            
+        #tie
+        for row in range(self.ySize):
+            if self.circles[row][0].occupiedPiece == None:
+                return None 
+            
+        return "tie"            

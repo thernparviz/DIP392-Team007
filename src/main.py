@@ -31,6 +31,30 @@ def play() -> None:
         if result != None:
             print(result)
             break
+        
+def winScreen(text) -> None:
+    """
+    Runs the Win Screen
+
+    Parameters:
+        text (str): stores who won.
+    """
+    
+    
+    while True:
+        screen.fill((0))
+        mouse_pos = pygame.mouse.get_pos()
+
+
+        menu_text = font.render(f"{text} Wins", True, "#b68f40")
+
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+        pygame.display.update()
 
 
 if __name__ == "__main__":
@@ -39,6 +63,8 @@ if __name__ == "__main__":
     clock = pygame.time.Clock()
     clock.tick(30)
     
+    fontSize = resolution[1]//18
+    font = pygame.font.SysFont("arialblack", fontSize)
     screen = pygame.display.set_mode((resolution[0], resolution[1]))
     canvas = pygame.Surface((resolution[0], resolution[1])) 
     

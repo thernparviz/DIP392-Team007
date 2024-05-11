@@ -137,4 +137,22 @@ class Board():
         self.circles[colLocation][-1].occupiedPiece = self.turn
         self.turn = not self.turn
       
-                
+    def isWin(self):
+
+        #vertical
+        for col in range(self.ySize):
+            for i in range(3):
+
+                ith = self.circles[col][i].occupiedPiece
+
+                if ith == None:
+                    continue
+
+                a= self.circles[col][i+1].occupiedPiece
+                b= self.circles[col][i+2].occupiedPiece
+                c= self.circles[col][i+3].occupiedPiece
+
+                if ith == a == b == c:
+                     return ith
+
+        return None            

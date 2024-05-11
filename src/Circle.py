@@ -1,4 +1,4 @@
-from pygame import Rect,draw
+from pygame import draw
 
 class Circle():
     
@@ -20,30 +20,22 @@ class Circle():
         # self.rect = Rect(self.x,self.y,width,height)
     
     def getCoordinates(self) -> tuple:
-        """
-        Returns:
-            coordinates (tuple) : coordinates(x,y)
-        """
+
         return (self.x,self.y)
 
     def getCenter(self) -> tuple:
-        """
-        Returns: 
-            center coordinates (tuple): center of the Square (x,y).
-        """
+
         return (self.x+self.width/2, self.y+self.height/2)
 
     def draw(self,screen) -> None:
-        """
-        Handels the drawing of the Squares and Pieces on the game window.
-        
-        Parameters:
-                screen (pygame.surface): window to draw
-        """
-        draw.circle(screen, center = self.getCenter() , radius = self.pieceRadius, color= (25,25,25))
-        
-        if self.occupiedPiece != None:
+        if self.occupiedPiece == None:
+            draw.circle(screen, center = self.getCenter() , radius = self.pieceRadius, color= "#1F1F1F")
+        elif self.isHighlight:
+            draw.circle(screen,center = self.getCenter(),radius = self.pieceRadius, color= "#2DC483")
+        else:
             if self.occupiedPiece == True:
-                draw.circle(screen,center = self.getCenter(),radius = self.pieceRadius, color= "Red")
+                draw.circle(screen,center = self.getCenter(),radius = self.pieceRadius, color= "#E71D36")
             else:
-                draw.circle(screen,center = self.getCenter(),radius = self.pieceRadius, color= "Yellow")
+                draw.circle(screen,center = self.getCenter(),radius = self.pieceRadius, color= "#FFAA33")
+                
+        

@@ -153,7 +153,8 @@ class Board():
                 c= self.circles[col][i+3].occupiedPiece
 
                 if ith == a == b == c:
-                     return ith
+                    self.highlight([self.circles[col][i],self.circles[col][i+1],self.circles[col][i+2],self.circles[col][i+3]])
+                    return ith
         
         #horizontal
         for row in range(self.xSize):
@@ -169,6 +170,7 @@ class Board():
                 c= self.circles[i+3][row].occupiedPiece
 
                 if ith == a == b == c:
+                    self.highlight([self.circles[i][row],self.circles[i+1][row],self.circles[i+2][row],self.circles[i+3][row]])
                     return ith
 
         #diagonal right-left
@@ -185,6 +187,7 @@ class Board():
                 c= self.circles[j+3][i+3].occupiedPiece
 
                 if ith == a == b == c:
+                    self.highlight([self.circles[j][i],self.circles[j+1][i+1],self.circles[j+2][i+2],self.circles[j+3][i+3]])
                     return ith
         
         #diagonal left-right
@@ -201,6 +204,7 @@ class Board():
                 c= self.circles[j+3][self.xSize-1-i-3].occupiedPiece
 
                 if ith == a == b == c:
+                    self.highlight([self.circles[j][self.xSize-1-i],self.circles[j+1][self.xSize-1-i-1],self.circles[j+2][self.xSize-1-i-2],self.circles[j+3][self.xSize-1-i-3]])
                     return ith
 
         #tie
@@ -208,4 +212,8 @@ class Board():
             if self.circles[row][0].occupiedPiece == None:
                 return None 
             
-        return "tie"            
+        return "Tie"            
+
+    def highlight(self, arr):
+        for i in arr:
+            i.isHighlight = True

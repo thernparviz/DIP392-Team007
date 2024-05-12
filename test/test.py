@@ -69,7 +69,16 @@ class TestConnectFour(unittest.TestCase):
         for row in range(7):
             self.board.circles[row][0].occupiedPiece = True if ( row) % 2 == 0 else False
         self.assertEqual(self.board.isWin(), "Tie")
-
+    
+    def test_restart_button(self):
+        for i in range(4):
+            self.board.circles[0][i].occupiedPiece = True
+        self.assertEqual(self.board.isWin(), True)
+        pygame.event.post(pygame.event.Event(pygame.MOUSEBUTTONDOWN, button=1, pos=(5*600/6, 30)))
+        self.board = Board(600, 600)
+        for i in range(4):
+            self.assertEqual( self.board.circles[0][i].occupiedPiece, None)
+ 
 
 
 if __name__ == '__main__':

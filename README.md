@@ -25,7 +25,7 @@ Note: Make sure file structure look like this
 
     ├── lib                      
     │   ├── Board.py
-    │   ├── Cirlce.py
+    │   └── Cirlce.py
     | 
     └── src
         └── main.py

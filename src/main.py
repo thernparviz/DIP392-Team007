@@ -24,7 +24,7 @@ def play() -> None:
                 pygame.quit()
                 sys.exit()
             elif event.type ==  pygame.MOUSEBUTTONDOWN:
-                if event.button == 1:
+                if event.button == 1 and my > 60:
                     board.click(mx,my)
                     
         text = "Turn: Red" if board.turn else "Turn: Yellow"           

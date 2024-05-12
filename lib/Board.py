@@ -105,6 +105,7 @@ class Board():
                     
                     my (int): y coordinate
          '''
+        
         colLocation = mx//self.increment_w #column number 0-6  increment = 900/7    128,57
         
 

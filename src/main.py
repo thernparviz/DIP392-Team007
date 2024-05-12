@@ -54,13 +54,25 @@ def winScreen(text) -> None:
         
         menu_text = font.render(f"{text}", True, "#b68f40")
         menu_rect = menu_text.get_rect(center=(resolution[0]/2, 30))
+        
+        restart_text = font.render(f"Restart", True, "#b68f40")
+        restart_rect = restart_text.get_rect(center=(5*resolution[0]/6, 30))
+        
+        
         topBar.blit(menu_text, menu_rect)
+        topBar.blit(restart_text, restart_rect)
         screen.blit(topBar, (0, 0))
+        mx, my = pygame.mouse.get_pos()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+            elif event.type ==  pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    if mx > 5*resolution[0]/6-(restart_rect.width/2) and mx < 5*resolution[0]/6+(restart_rect.width/2) and my > 0 and my < 60:
+                        play()
+                        break
 
         pygame.display.update()
 

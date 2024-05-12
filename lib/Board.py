@@ -96,22 +96,6 @@ class Board():
             for circle in row:
                 circle.draw(screen)
 
-    # def pieceUpdate(self) -> None:
-    #     '''
-    #         Updates the list blackPieces and whitePieces.
-    #     '''
-    #     self.blackPieces = []
-    #     self.whitePieces = []
-
-    #     for row in self.circles:
-    #         for square in row:
-    #             if square.occupiedPiece != None:
-    #                 piece = square.occupiedPiece
-    #                 if piece.isBlack == True:
-    #                     self.blackPieces.append(piece)
-    #                 else:
-    #                     self.whitePieces.append(piece)
-
     def click(self, mx: int, my: int) -> None:
         '''
             Handels mouse click on the game window.
